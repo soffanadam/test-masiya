@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('person.getIndex', ['groupBy' => 'city']);
 });
+
+Route::get('persons/by-{groupBy}', ['as' => 'person.getIndex', 'uses' => 'PersonController@getIndex']);
