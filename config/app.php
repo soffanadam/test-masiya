@@ -166,6 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
+        HieuLe\Active\ActiveServiceProvider::class,
         Orchestra\Parser\XmlServiceProvider::class,
 
         /*
@@ -192,6 +193,7 @@ return [
 
     'aliases' => [
 
+        'Active' => HieuLe\Active\Facades\Active::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,

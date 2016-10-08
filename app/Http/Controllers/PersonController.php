@@ -15,8 +15,8 @@ class PersonController extends Controller
 
     public function getIndex($groupBy)
     {
-        $persons = $this->persons->getAll()->groupBy($groupBy);
+        $groupedPersons = $this->persons->getAll()->groupBy($groupBy);
         
-        dd($persons);
+        return view('index', compact('groupedPersons'));
     }
 }
