@@ -25,7 +25,9 @@ abstract class XmlRepository
 	{
         return collect($this->xml->parse([
             ['uses' => 'row['.implode(',', $this->fields).']']
-        ])[0]);
+        ])[0])->map(function ($row) {
+            return $this->present($row);
+        });
 	}
 
     protected function getFilePath()
@@ -41,5 +43,10 @@ abstract class XmlRepository
         $xmlString = preg_replace("/<field name=\"(.*?)\">(.*?)<\/field>/", "<$1>$2</$1>", $xmlString);
 
         return $xmlString;
+    }
+
+    protected function present($row)
+    {
+        return $row;
     }
 }
