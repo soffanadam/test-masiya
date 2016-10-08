@@ -22,26 +22,28 @@
 			</ul>
 		</div>
 	</div>
-	<table class="table table-blue">
-		<thead>
-			<tr>
-			<td>Name</td><td>City</td><td>Department</td><td></td>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach ($groupedPersons as $group => $persons)
-				<tr><th colspan="4">{{ $group }}</th></tr>
-				@foreach ($persons as $person)
-					<tr>
-						<td>{{ $person['name'] }}<br><span class="text-muted">{{ $person['position'] }}</span></td>
-						<td>{{ $person['city'] }}</td>
-						<td>{{ $person['department'] }}</td>
-						<td><span class="status-indicator-{{ $person['status'] }}">{{ $person['statusText'] }}</span></td>
-					</tr>
+	<div class="table-responsive">
+		<table class="table table-blue">
+			<thead>
+				<tr>
+				<td>Name</td><td>City</td><td>Department</td><td width="10"></td>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach ($groupedPersons as $group => $persons)
+					<tr><th colspan="4">{{ $group }}</th></tr>
+					@foreach ($persons as $person)
+						<tr>
+							<td>{{ $person['name'] }}<br><span class="text-muted">{{ $person['position'] }}</span></td>
+							<td>{{ $person['city'] }}</td>
+							<td>{{ $person['department'] }}</td>
+							<td><span class="status-indicator status-indicator-{{ $person['status'] }}">{{ $person['statusText'] }}</span></td>
+						</tr>
+					@endforeach
 				@endforeach
-			@endforeach
-		</tbody>
-	</table>
+			</tbody>
+		</table>
+	</div>
 </div>
 </body>
 </html>
